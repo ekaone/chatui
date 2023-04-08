@@ -16,6 +16,8 @@ import {
 import { RiDribbbleLine, RiInstagramLine, RiTwitterFill } from "react-icons/ri";
 import ChatRow from "./ChatRow";
 import UserAvatar from "./UserAvatar";
+import { messages } from "@/shared/messages";
+import { IMessages } from "@/shared/types";
 
 const onlineFriends = [
   "Lazar Nikolov",
@@ -111,39 +113,11 @@ const ChatHistorySidebar = () => {
       </Box>
       <Box w="full" overflowY="auto">
         <List w="full" spacing={0}>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
-          <ListItem>
-            <ChatRow />
-          </ListItem>
+          {messages.map((message: IMessages) => (
+            <ListItem key={message.id}>
+              <ChatRow {...message} />
+            </ListItem>
+          ))}
         </List>
       </Box>
     </VStack>

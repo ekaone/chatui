@@ -1,8 +1,10 @@
 import { Box, Flex, Heading, Text, VStack } from "@chakra-ui/react";
+import { IMessages } from "@/shared/types";
 
-const ChatRow = () => {
+const ChatRow = ({ id, name, message, time }: IMessages) => {
   return (
     <Flex
+      key={id}
       py={4}
       px={8}
       w="full"
@@ -21,7 +23,7 @@ const ChatRow = () => {
         alignItems="flex-start"
       >
         <Heading fontSize={12} w="full">
-          John Shinoda
+          {name}
         </Heading>
         <Text
           overflow="hidden"
@@ -31,11 +33,11 @@ const ChatRow = () => {
           fontSize="xs"
           color="gray.500"
         >
-          Sample text message goes here.
+          {message}
         </Text>
       </VStack>
       <Text ml={3} fontSize="xs" color="gray.500">
-        08:30
+        {time}
       </Text>
     </Flex>
   );
